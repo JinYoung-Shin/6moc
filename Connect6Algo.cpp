@@ -1,6 +1,6 @@
 // Samsung Go Tournament Form C Connect6Algo (g++-4.8.3)
 
-// <--------------- ÀÌ Code¸¦ ¼öÁ¤ÇÏ¸é  ÀÛµ¿ÇÏÁö ¾ÊÀ» ¼ö ÀÖ½À´Ï´Ù ------------------>
+// <--------------- ì´ Codeë¥¼ ìˆ˜ì •í•˜ë©´  ì‘ë™í•˜ì§€ ì•Šì„ ìˆ˜ ìˆìŠµë‹ˆë‹¤ ------------------>
 
 #include <Windows.h>
 #include <stdio.h>
@@ -99,13 +99,13 @@ static void doCommand() {
 	else if ((param = getParam("TURN", cmd)) != 0) {
 		int x[2], y[2], r;
 		if (((r = sscanf_s(param, "%d,%d %d,%d", &x[0], &y[0], &x[1], &y[1])) != 4 && r != 2)) {
-			setLine("ERROR Çü½Ä¿¡ ¸ÂÁö ¾Ê´Â ÁÂÇ¥°¡ ÀÔ·ÂµÇ¾ú½À´Ï´Ù");
+			setLine("ERROR í˜•ì‹ì— ë§ì§€ ì•ŠëŠ” ì¢Œí‘œê°€ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤");
 			return;
 		}
 		else {
 			for (int i = 0; i < (r / 2); i++) {
 				if (x[i] < 0 || x[i] >= width || y[i] < 0 || y[i] >= height) {
-					setLine("ERROR Çü½Ä¿¡ ¸ÂÁö ¾Ê´Â ÁÂÇ¥°¡ ÀÔ·ÂµÇ¾ú½À´Ï´Ù");
+					setLine("ERROR í˜•ì‹ì— ë§ì§€ ì•ŠëŠ” ì¢Œí‘œê°€ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤");
 					return;
 				}
 			}
@@ -141,7 +141,7 @@ static DWORD WINAPI threadLoop(LPVOID) {
 int main() {
 	DWORD mode;
 	if (GetConsoleMode(GetStdHandle(STD_INPUT_HANDLE), &mode))
-		puts("Á÷Á¢ ½ÇÇà ºÒ°¡´ÉÇÑ ÆÄÀÏÀÔ´Ï´Ù. À°¸ñ ¾Ë°í¸®Áò ´ëÈ¸ ÅøÀ» ÀÌ¿ëÇØ ½ÇÇàÇÏ¼¼¿ä.");
+		puts("ì§ì ‘ ì‹¤í–‰ ë¶ˆê°€ëŠ¥í•œ íŒŒì¼ì…ë‹ˆë‹¤. ìœ¡ëª© ì•Œê³ ë¦¬ì¦˜ ëŒ€íšŒ íˆ´ì„ ì´ìš©í•´ ì‹¤í–‰í•˜ì„¸ìš”.");
 
 	DWORD tid;
 	event1 = CreateEvent(0, FALSE, FALSE, 0);
@@ -176,7 +176,7 @@ void mymove(int x[], int y[], int cnt) {
 			board[x[i]][y[i]] = 1;
 		}
 		else {
-			setLine("ERROR ÀÌ¹Ì µ¹ÀÌ ÀÖ´Â À§Ä¡ÀÔ´Ï´Ù. MY[%d, %d]", x[i], y[i]);
+			setLine("ERROR ì´ë¯¸ ëŒì´ ìˆëŠ” ìœ„ì¹˜ì…ë‹ˆë‹¤. MY[%d, %d]", x[i], y[i]);
 		}
 	}
 }
@@ -187,7 +187,7 @@ void opmove(int x[], int y[], int cnt) {
 			board[x[i]][y[i]] = 2;
 		}
 		else {
-			setLine("ERROR ÀÌ¹Ì µ¹ÀÌ ÀÖ´Â À§Ä¡ÀÔ´Ï´Ù. OP[%d, %d]", x[i], y[i]);
+			setLine("ERROR ì´ë¯¸ ëŒì´ ìˆëŠ” ìœ„ì¹˜ì…ë‹ˆë‹¤. OP[%d, %d]", x[i], y[i]);
 		}
 	}
 }
@@ -197,4 +197,3 @@ void block(int x, int y) {
 		board[x][y] = 3;
 	}
 }
-

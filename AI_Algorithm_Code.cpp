@@ -1,36 +1,36 @@
 // Samsung Go Tournament Form C (g++-4.8.3)
 
 /*
-[AI ÄÚµå ÀÛ¼º ¹æ¹ý]
+[AI ì½”ë“œ ìž‘ì„± ë°©ë²•]
 
-1. char info[]ÀÇ ¹è¿­ ¾È¿¡					"TeamName:ÀÚ½ÅÀÇ ÆÀ¸í,Department:ÀÚ½ÅÀÇ ¼Ò¼Ó"					¼ø¼­·Î ÀÛ¼ºÇÕ´Ï´Ù.
-( ÁÖÀÇ ) Teamname:°ú Department:´Â ²À µé¾î°¡¾ß ÇÕ´Ï´Ù.
-"ÀÚ½ÅÀÇ ÆÀ¸í", "ÀÚ½ÅÀÇ ¼Ò¼Ó"À» ¼öÁ¤ÇØ¾ß ÇÕ´Ï´Ù.
+1. char info[]ì˜ ë°°ì—´ ì•ˆì—					"TeamName:ìžì‹ ì˜ íŒ€ëª…,Department:ìžì‹ ì˜ ì†Œì†"					ìˆœì„œë¡œ ìž‘ì„±í•©ë‹ˆë‹¤.
+( ì£¼ì˜ ) Teamname:ê³¼ Department:ëŠ” ê¼­ ë“¤ì–´ê°€ì•¼ í•©ë‹ˆë‹¤.
+"ìžì‹ ì˜ íŒ€ëª…", "ìžì‹ ì˜ ì†Œì†"ì„ ìˆ˜ì •í•´ì•¼ í•©ë‹ˆë‹¤.
 
-2. ¾Æ·¡ÀÇ myturn() ÇÔ¼ö ¾È¿¡ ÀÚ½Å¸¸ÀÇ AI ÄÚµå¸¦ ÀÛ¼ºÇÕ´Ï´Ù.
+2. ì•„ëž˜ì˜ myturn() í•¨ìˆ˜ ì•ˆì— ìžì‹ ë§Œì˜ AI ì½”ë“œë¥¼ ìž‘ì„±í•©ë‹ˆë‹¤.
 
-3. AI ÆÄÀÏÀ» Å×½ºÆ® ÇÏ½Ç ¶§´Â "À°¸ñ ¾Ë°í¸®Áò´ëÈ¸ Åø"À» »ç¿ëÇÕ´Ï´Ù.
+3. AI íŒŒì¼ì„ í…ŒìŠ¤íŠ¸ í•˜ì‹¤ ë•ŒëŠ” "ìœ¡ëª© ì•Œê³ ë¦¬ì¦˜ëŒ€íšŒ íˆ´"ì„ ì‚¬ìš©í•©ë‹ˆë‹¤.
 
-4. À°¸ñ ¾Ë°í¸®Áò ´ëÈ¸ ÅøÀÇ ¿¬½ÀÇÏ±â¿¡¼­ ¹ÙµÏµ¹À» ´©¸¥ ÈÄ, ÀÚ½ÅÀÇ "ÆÀ¸í" ÀÌ µé¾î°£ ¾Ë°í¸®ÁòÀ» Ãß°¡ÇÏ¿© Å×½ºÆ® ÇÕ´Ï´Ù.
-
-
-
-[º¯¼ö ¹× ÇÔ¼ö]
-myturn(int cnt) : ÀÚ½ÅÀÇ AI ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ¸ÞÀÎ ÇÔ¼ö ÀÔ´Ï´Ù.
-int cnt (myturn()ÇÔ¼öÀÇ ÆÄ¶ó¹ÌÅÍ) : µ¹À» ¸î ¼ö µÖ¾ßÇÏ´ÂÁö Á¤ÇÏ´Â º¯¼ö, cnt°¡ 1ÀÌ¸é À°¸ñ ½ÃÀÛ ½Ã  ÇÑ ¹ø¸¸  µÎ´Â »óÈ²(ÇÑ ¹ø), cnt°¡ 2ÀÌ¸é ±× ÀÌÈÄ µ¹À» µÎ´Â »óÈ²(µÎ ¹ø)
-int  x[0], y[0] : ÀÚ½ÅÀÌ µÑ Ã¹ ¹ø Â° µ¹ÀÇ xÁÂÇ¥ , yÁÂÇ¥°¡ ÀúÀåµÇ¾î¾ß ÇÕ´Ï´Ù.
-int  x[1], y[1] : ÀÚ½ÅÀÌ µÑ µÎ ¹ø Â° µ¹ÀÇ xÁÂÇ¥ , yÁÂÇ¥°¡ ÀúÀåµÇ¾î¾ß ÇÕ´Ï´Ù.
-void domymove(int x[], int y[], cnt) : µÑ µ¹µéÀÇ ÁÂÇ¥¸¦ ÀúÀåÇØ¼­ Ãâ·Â
+4. ìœ¡ëª© ì•Œê³ ë¦¬ì¦˜ ëŒ€íšŒ íˆ´ì˜ ì—°ìŠµí•˜ê¸°ì—ì„œ ë°”ë‘‘ëŒì„ ëˆ„ë¥¸ í›„, ìžì‹ ì˜ "íŒ€ëª…" ì´ ë“¤ì–´ê°„ ì•Œê³ ë¦¬ì¦˜ì„ ì¶”ê°€í•˜ì—¬ í…ŒìŠ¤íŠ¸ í•©ë‹ˆë‹¤.
 
 
-//int board[BOARD_SIZE][BOARD_SIZE]; ¹ÙµÏÆÇ ÇöÀç»óÈ² ´ã°í ÀÖ¾î ¹Ù·Î»ç¿ë °¡´ÉÇÔ. ´Ü, ¿øº»µ¥ÀÌÅÍ·Î ¼öÁ¤ Àý´ë±ÝÁö
-// ³õÀ»¼ö ¾ø´Â À§Ä¡¿¡ ¹ÙµÏµ¹À» ³õÀ¸¸é ½Ç°ÝÆÐ Ã³¸®.
 
-boolean ifFree(int x, int y) : ÇöÀç [x,y]ÁÂÇ¥¿¡ ¹ÙµÏµ¹ÀÌ ÀÖ´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö (¾øÀ¸¸é true, ÀÖÀ¸¸é false)
-int showBoard(int x, int y) : [x, y] ÁÂÇ¥¿¡ ¹«½¼ µ¹ÀÌ Á¸ÀçÇÏ´ÂÁö º¸¿©ÁÖ´Â ÇÔ¼ö (1 = ÀÚ½ÅÀÇ µ¹, 2 = »ó´ëÀÇ µ¹, 3 = ºí·°Å·)
+[ë³€ìˆ˜ ë° í•¨ìˆ˜]
+myturn(int cnt) : ìžì‹ ì˜ AI ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” ë©”ì¸ í•¨ìˆ˜ ìž…ë‹ˆë‹¤.
+int cnt (myturn()í•¨ìˆ˜ì˜ íŒŒë¼ë¯¸í„°) : ëŒì„ ëª‡ ìˆ˜ ë‘¬ì•¼í•˜ëŠ”ì§€ ì •í•˜ëŠ” ë³€ìˆ˜, cntê°€ 1ì´ë©´ ìœ¡ëª© ì‹œìž‘ ì‹œ  í•œ ë²ˆë§Œ  ë‘ëŠ” ìƒí™©(í•œ ë²ˆ), cntê°€ 2ì´ë©´ ê·¸ ì´í›„ ëŒì„ ë‘ëŠ” ìƒí™©(ë‘ ë²ˆ)
+int  x[0], y[0] : ìžì‹ ì´ ë‘˜ ì²« ë²ˆ ì§¸ ëŒì˜ xì¢Œí‘œ , yì¢Œí‘œê°€ ì €ìž¥ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+int  x[1], y[1] : ìžì‹ ì´ ë‘˜ ë‘ ë²ˆ ì§¸ ëŒì˜ xì¢Œí‘œ , yì¢Œí‘œê°€ ì €ìž¥ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+void domymove(int x[], int y[], cnt) : ë‘˜ ëŒë“¤ì˜ ì¢Œí‘œë¥¼ ì €ìž¥í•´ì„œ ì¶œë ¥
 
 
-<-------AI¸¦ ÀÛ¼ºÇÏ½Ç ¶§, °°Àº ÀÌ¸§ÀÇ ÇÔ¼ö ¹× º¯¼ö »ç¿ëÀ» ±ÇÀåÇÏÁö ¾Ê½À´Ï´Ù----->
+//int board[BOARD_SIZE][BOARD_SIZE]; ë°”ë‘‘íŒ í˜„ìž¬ìƒí™© ë‹´ê³  ìžˆì–´ ë°”ë¡œì‚¬ìš© ê°€ëŠ¥í•¨. ë‹¨, ì›ë³¸ë°ì´í„°ë¡œ ìˆ˜ì • ì ˆëŒ€ê¸ˆì§€
+// ë†“ì„ìˆ˜ ì—†ëŠ” ìœ„ì¹˜ì— ë°”ë‘‘ëŒì„ ë†“ìœ¼ë©´ ì‹¤ê²©íŒ¨ ì²˜ë¦¬.
+
+boolean ifFree(int x, int y) : í˜„ìž¬ [x,y]ì¢Œí‘œì— ë°”ë‘‘ëŒì´ ìžˆëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜ (ì—†ìœ¼ë©´ true, ìžˆìœ¼ë©´ false)
+int showBoard(int x, int y) : [x, y] ì¢Œí‘œì— ë¬´ìŠ¨ ëŒì´ ì¡´ìž¬í•˜ëŠ”ì§€ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜ (1 = ìžì‹ ì˜ ëŒ, 2 = ìƒëŒ€ì˜ ëŒ, 3 = ë¸”ëŸ­í‚¹)
+
+
+<-------AIë¥¼ ìž‘ì„±í•˜ì‹¤ ë•Œ, ê°™ì€ ì´ë¦„ì˜ í•¨ìˆ˜ ë° ë³€ìˆ˜ ì‚¬ìš©ì„ ê¶Œìž¥í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤----->
 */
 
 #include <stdio.h>
@@ -38,17 +38,17 @@ int showBoard(int x, int y) : [x, y] ÁÂÇ¥¿¡ ¹«½¼ µ¹ÀÌ Á¸ÀçÇÏ´ÂÁö º¸¿©ÁÖ´Â ÇÔ¼ö (
 #include <time.h>
 #include "Connect6Algo.h"
 
-// "»ùÇÃÄÚµå[C]"  -> ÀÚ½ÅÀÇ ÆÀ¸í (¼öÁ¤)
-// "AIºÎ¼­[C]"  -> ÀÚ½ÅÀÇ ¼Ò¼Ó (¼öÁ¤)
-// Á¦Ãâ½Ã ½ÇÇàÆÄÀÏÀº ¹Ýµå½Ã ÆÀ¸íÀ¸·Î Á¦Ãâ!
-char info[] = { "TeamName:»ùÇÃÄÚµå[C],Department:AIºÎ¼­[C]" };
+// "ìƒ˜í”Œì½”ë“œ[C]"  -> ìžì‹ ì˜ íŒ€ëª… (ìˆ˜ì •)
+// "AIë¶€ì„œ[C]"  -> ìžì‹ ì˜ ì†Œì† (ìˆ˜ì •)
+// ì œì¶œì‹œ ì‹¤í–‰íŒŒì¼ì€ ë°˜ë“œì‹œ íŒ€ëª…ìœ¼ë¡œ ì œì¶œ!
+char info[] = { "TeamName:NeverLose,Department:ì„±ê· ê´€ëŒ€í•™êµ" };
 
 void myturn(int cnt) {
 
 	int x[2], y[2];
 
-	// ÀÌ ºÎºÐ¿¡¼­ ¾Ë°í¸®Áò ÇÁ·Î±×·¥(AI)À» ÀÛ¼ºÇÏ½Ê½Ã¿À. ±âº» Á¦°øµÈ ÄÚµå¸¦ ¼öÁ¤ ¶Ç´Â »èÁ¦ÇÏ°í º»ÀÎÀÌ ÄÚµå¸¦ »ç¿ëÇÏ½Ã¸é µË´Ï´Ù.
-	// ÇöÀç Sample codeÀÇ AI´Â RandomÀ¸·Î µ¹À» ³õ´Â AlgorithmÀÌ ÀÛ¼ºµÇ¾î ÀÖ½À´Ï´Ù.
+	// ì´ ë¶€ë¶„ì—ì„œ ì•Œê³ ë¦¬ì¦˜ í”„ë¡œê·¸ëž¨(AI)ì„ ìž‘ì„±í•˜ì‹­ì‹œì˜¤. ê¸°ë³¸ ì œê³µëœ ì½”ë“œë¥¼ ìˆ˜ì • ë˜ëŠ” ì‚­ì œí•˜ê³  ë³¸ì¸ì´ ì½”ë“œë¥¼ ì‚¬ìš©í•˜ì‹œë©´ ë©ë‹ˆë‹¤.
+	// í˜„ìž¬ Sample codeì˜ AIëŠ” Randomìœ¼ë¡œ ëŒì„ ë†“ëŠ” Algorithmì´ ìž‘ì„±ë˜ì–´ ìžˆìŠµë‹ˆë‹¤.
 
 	srand((unsigned)time(NULL));
 
@@ -62,8 +62,8 @@ void myturn(int cnt) {
 		if (x[1] == x[0] && y[1] == y[0]) i--;
 	}
 
-	// ÀÌ ºÎºÐ¿¡¼­ ÀÚ½ÅÀÌ ³õÀ» µ¹À» Ãâ·ÂÇÏ½Ê½Ã¿À.
-	// ÇÊ¼ö ÇÔ¼ö : domymove(x¹è¿­,y¹è¿­,¹è¿­Å©±â)
-	// ¿©±â¼­ ¹è¿­Å©±â(cnt)´Â myturn()ÀÇ ÆÄ¶ó¹ÌÅÍ cnt¸¦ ±×´ë·Î ³Ö¾î¾ßÇÕ´Ï´Ù.
+	// ì´ ë¶€ë¶„ì—ì„œ ìžì‹ ì´ ë†“ì„ ëŒì„ ì¶œë ¥í•˜ì‹­ì‹œì˜¤.
+	// í•„ìˆ˜ í•¨ìˆ˜ : domymove(xë°°ì—´,yë°°ì—´,ë°°ì—´í¬ê¸°)
+	// ì—¬ê¸°ì„œ ë°°ì—´í¬ê¸°(cnt)ëŠ” myturn()ì˜ íŒŒë¼ë¯¸í„° cntë¥¼ ê·¸ëŒ€ë¡œ ë„£ì–´ì•¼í•©ë‹ˆë‹¤.
 	domymove(x, y, cnt);
 }

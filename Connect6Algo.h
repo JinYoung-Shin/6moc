@@ -1,6 +1,6 @@
 // Samsung Go Tournament Form C Connect6Algo Header (g++-4.8.3)
 
-// <--------------- ÀÌ Code¸¦ ¼öÁ¤ÇÏ¸é  ÀÛµ¿ÇÏÁö ¾ÊÀ» ¼ö ÀÖ½À´Ï´Ù ------------------>
+// <--------------- ì´ Codeë¥¼ ìˆ˜ì •í•˜ë©´  ìž‘ë™í•˜ì§€ ì•Šì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤ ------------------>
 
 #pragma once
 extern int width, height;
